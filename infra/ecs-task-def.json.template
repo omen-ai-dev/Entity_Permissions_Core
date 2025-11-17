@@ -176,6 +176,91 @@
           "awslogs-create-group": "true"
         }
       }
+    },
+    {
+      "name": "temporal-worker",
+      "image": "<IMAGE_URI>",
+      "essential": false,
+      "command": ["python", "-m", "app.workers.temporal_worker"],
+      "environment": [
+        {
+          "name": "EPR_ENVIRONMENT",
+          "value": "<EPR_ENVIRONMENT>"
+        },
+        {
+          "name": "EPR_DATABASE_URL",
+          "value": "<EPR_DATABASE_URL>"
+        },
+        {
+          "name": "EPR_LOG_LEVEL",
+          "value": "<EPR_LOG_LEVEL>"
+        },
+        {
+          "name": "EPR_LOG_JSON",
+          "value": "<EPR_LOG_JSON>"
+        },
+        {
+          "name": "EPR_SQL_ECHO",
+          "value": "<EPR_SQL_ECHO>"
+        },
+        {
+          "name": "EPR_REDIS_URL",
+          "value": "<EPR_REDIS_URL>"
+        },
+        {
+          "name": "EPR_REDIS_TOKEN",
+          "value": "<EPR_REDIS_TOKEN>"
+        },
+        {
+          "name": "EPR_REDIS_CACHE_PREFIX",
+          "value": "<EPR_REDIS_CACHE_PREFIX>"
+        },
+        {
+          "name": "EPR_REDIS_CACHE_TTL",
+          "value": "<EPR_REDIS_CACHE_TTL>"
+        },
+        {
+          "name": "EPR_DOCUMENT_VAULT_TOPIC_ARN",
+          "value": "<EPR_DOCUMENT_VAULT_TOPIC_ARN>"
+        },
+        {
+          "name": "EPR_DOCUMENT_EVENT_SOURCE",
+          "value": "<EPR_DOCUMENT_EVENT_SOURCE>"
+        },
+        {
+          "name": "EPR_DOCUMENT_VAULT_SERVICE_URL",
+          "value": "<EPR_DOCUMENT_VAULT_SERVICE_URL>"
+        },
+        {
+          "name": "EPR_TEMPORAL_HOST",
+          "value": "<EPR_TEMPORAL_HOST>"
+        },
+        {
+          "name": "EPR_TEMPORAL_NAMESPACE",
+          "value": "<EPR_TEMPORAL_NAMESPACE>"
+        },
+        {
+          "name": "EPR_TEMPORAL_API_KEY",
+          "value": "<EPR_TEMPORAL_API_KEY>"
+        },
+        {
+          "name": "EPR_TEMPORAL_TASK_QUEUE",
+          "value": "<EPR_TEMPORAL_TASK_QUEUE>"
+        },
+        {
+          "name": "EPR_TEMPORAL_TLS_ENABLED",
+          "value": "<EPR_TEMPORAL_TLS_ENABLED>"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "<CLOUDWATCH_LOG_GROUP>",
+          "awslogs-region": "<AWS_REGION>",
+          "awslogs-stream-prefix": "temporal-worker",
+          "awslogs-create-group": "true"
+        }
+      }
     }
   ]
 }
